@@ -1,0 +1,116 @@
+.floor-options {
+    @media (min-width: 768px) and (max-width: 1024px) {
+        margin-top: 21px;
+    }  
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+        margin: 20px 0 0 16px;
+        padding: 0;
+    }
+    .floor-options-title {
+        width: 100%;
+        height: 18px;
+        font-family: Lato;
+        font-size: 15px;
+        text-align: left;
+        color: #a6b4db;
+        padding: 21px 42px;
+        margin: 0 auto;
+        transition: all 0.63s;
+        @media (min-width: 768px) and (max-width: 1024px) {
+            padding: 0 0px 20px 20px;
+            margin-top: 20px;            
+        }
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+            padding: 2px 0 20px 0;
+            margin: 2px 0 7px 19px;
+        }
+        &:hover {
+            color: #ffffff;
+        }
+    }
+    form {
+        input {
+            appearance: none;
+            display: none;
+            width: 0;
+            height: 0;
+
+            &+label {
+                width: 100%;
+                height: 30px;
+                opacity: 0.65;
+                font-family: Lato;
+                font-size: 13px;
+                text-align: left;
+                color: #ffffff;
+                margin: 14px auto 0;
+                padding: 6px 0 0 63px;
+                font-weight: 400;
+                transition: all 0.3s;
+                cursor: pointer;
+                @media (min-width: 768px) and (max-width: 1024px) {
+                    padding: 0px 0 0 41px;
+                    margin-top: 17px;                    
+                }
+
+                @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+                    padding: 0 0 0 40px;
+                    margin: 0;
+                    height: 25px;
+                }
+
+                &:hover {
+                    opacity: 1;
+                    &:before {
+                        background-color: #d42bff;
+                        border: solid 1px #d42bff;
+                        opacity: 1;
+                    }
+                }
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    width: 10px;
+                    height: 10px;
+                    opacity: .34;
+                    border-radius: 7px;
+                    border: solid 1px #a6b4db;
+                    margin: 4px 0 0px -20px;
+                    transition: all 0.3s;
+                }
+            }
+
+            &:checked+label {
+                opacity: 1;
+                @media (min-width: 768px) and (max-width: 1024px) {
+                    padding-top: 0px;
+                }
+                @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+                    padding-left: 41px;  
+                    margin: 0; 
+                }
+                &:before {
+                    background-color: #d42bff;
+                    border: solid 1px #d42bff;
+                    opacity: 1;
+                }
+                &.activateIIC {
+                    background-color: #d42bff;
+                    border: solid 0px #d42bff;
+                    opacity: 1;
+                    padding: 4px 0 0 63px;
+                    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+                        padding: 0 0 0 41px;
+                        margin: 0; 
+                    } 
+                &:before {
+                        border: solid 0px #fff;                    
+                        background-color: #fff; 
+                    }
+                }
+            }
+        }
+    }
+}

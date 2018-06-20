@@ -1,0 +1,302 @@
+ul ul {
+    display: none;
+    padding: 0;
+}
+
+.swatch {
+    left: 24px;
+    float: left;
+    opacity: 1;
+    border-radius: 2px;
+    cursor: pointer;
+    @media (min-width: 768px) and (max-width: 1024px) {
+        left: 9px;
+    }
+    img {
+        max-width: 48px;
+        width: 100%;
+    }
+}
+
+.item-list {
+    margin: 0 auto;
+    padding: 0;
+    height: 87.3%;
+    width: 104%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    .item {
+        top: 15px;
+        @media (min-width: 768px) and (max-width: 1024px) {
+            top: 6px;
+        }
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+            top: 16px;
+        }
+        
+        .subitem {
+            display: none;
+            &.active {
+                background: #c42bff;
+            }
+            .row {
+                .rating {
+                    text-align: left;
+                }
+                .deci {
+                    text-align: left;
+                }
+                .soundBite {
+                    text-align: left;
+                }
+            }
+            .soundFile {
+                display: none;
+                height: 0;
+            }
+        }
+
+        .row {
+            // opacity: 0.53;
+            color: #fff;
+            border-bottom: solid 2px #475b99;
+            margin: 0;
+            padding: 15px 0;
+            cursor: pointer;
+            transition: all 0.3s;
+            &.floor {
+                padding: 25px 0;
+                color: #a6b4db;
+                @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+                    padding: 20px 0;
+                }
+            }
+            #waveform {
+                width: 198px;
+            }
+            input[type="button"] {
+                &:focus {
+                    outline: none;
+                }
+            }
+            .btn-play {
+                display: inline-block;
+                vertical-align: middle;
+                width: 8px;
+                height: 8px;
+                border-left: solid 8px #c42bff;
+                border-bottom: solid 8px transparent;
+                border-top: solid 8px transparent;
+                background: none;
+                border-right: none;
+
+                @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+                    margin: 0;
+                }
+            }
+
+            .soundBar {
+                width: 215px;
+                height: 2px;
+                border-radius: 3.5px;
+                background-color: #1f2844;
+                text-align: center;
+                vertical-align: middle;
+                margin-left: 11px;
+                display: inline-block;
+                @media (min-width: 768px) and (max-width: 1024px) {
+                    width: 102px;
+                }
+                @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+                    width: 188px;
+                }
+            }
+
+            .vanishSoundBar {
+                display: none;
+            }
+
+            .bars {
+                position: absolute;
+                top: 50%;
+                height: 0;
+                left: 83px;
+                width: 130px;
+                transform: scale(1.5) translateY(-50%);
+                @media (min-width: 768px) and (max-width: 1024px) {
+                    width: 223px;
+                    top: 24%;
+                }
+                @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+                    width: 223px;
+                    top: 24%;
+                    left: 40% !important;
+                }
+
+                .bar {
+                    position: absolute;
+                    bottom: 0px;
+                    height: 3px;
+                    width: 2px;
+                    opacity: 1;
+                    background: linear-gradient(270deg, #904e95, #c42bff);
+                    background-size: 400% 400%;
+                    animation: sound 0ms -800ms linear infinite alternate, barGradient 0s -800ms ease infinite; // animation: sound 0ms -800ms linear infinite alternate;
+                    transform: translateY(50%);
+
+                    @-webkit-keyframes barGradient {
+                        0% {
+                            background-position: 0% 50%
+                        }
+                        50% {
+                            background-position: 100% 50%
+                        }
+                        100% {
+                            background-position: 0% 50%
+                        }
+                    }
+                    @-moz-keyframes barGradient {
+                        0% {
+                            background-position: 0% 50%
+                        }
+                        50% {
+                            background-position: 100% 50%
+                        }
+                        100% {
+                            background-position: 0% 50%
+                        }
+                    }
+                    @keyframes barGradient {
+                        0% {
+                            background-position: 0% 50%
+                        }
+                        50% {
+                            background-position: 100% 50%
+                        }
+                        100% {
+                            background-position: 0% 50%
+                        }
+                    }
+                }
+
+                @keyframes sound {
+                    0% {
+                        opacity: 0.35;
+                        height: 3px;
+                    }
+                    100% {
+                        opacity: 1;
+                        height: 22px;
+                    }
+                }
+            }
+        }
+        .triangle {
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+            margin-top: 19px;
+            fill: #7991db;
+            @media (min-width: 768px) and (max-width: 1024px) {
+                margin-top: 14px;
+            }
+            @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+                margin-top: 22px;
+            }
+        }
+
+        &.active {
+            &>.row {
+                background: #c42bff;
+                opacity: 1;
+            }
+            .triangle {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+                -webkit-transition: all 0.5s;
+                transition: all 0.5s;
+            }
+            .btn-pause {
+                color: #404e78;
+                /* This is the color of the button */
+                background-color: #c42bff;
+                top: 2px;
+                width: 16px; 
+                height: 16px;
+                position: relative;
+                cursor: pointer;
+                overflow: hidden;
+                background-image: linear-gradient(to right,
+                                                    transparent 40%,
+                                                    currentColor 40%,
+                                                    currentColor 60%,
+                                                    transparent 0);
+                border-top: none;
+                border-bottom: #404e78;
+                border-right: #404e78;
+                border-left: #404e78;
+                @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+.row:hover {
+    opacity: 1;
+    background-color: #404e78;
+    box-shadow: 0 3px 26px 0 rgba(0, 0, 0, 0.13);
+}
+
+div.col-xs-3.subtype {
+    margin-left: 30px;
+    width: 152px;
+}
+
+.text-circle {
+    width: 24px;
+    height: 24px;
+    background-color: #7991db;
+    color: #ffffff;
+    float: right;
+    border-radius: 25px;
+    text-align: center;
+    line-height: 24px;
+    opacity: .75;
+    font-family: Lato;
+    font-size: 11px;
+    font-weight: bold;
+    margin: 13px 0 0 0;
+    @media (min-width: 768px) and (max-width: 1024px) {
+        margin: 6px 0 0 0;
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+        margin-top: 14px;
+    }
+}
+
+.myNumber>p {
+    margin: 20px;
+    color: white;
+    opacity: 1;
+}
+
+path {
+    fill: #7991db;
+}
+
+.subitem {
+    color: #a6b4db;
+}
+
+.sublist {
+    font-family: Lato;
+    font-size: 13px;
+    text-align: left;
+    color: #ffffff;
+}
+
+.col-xs-1 {
+    padding-right: 0px;
+}
